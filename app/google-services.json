@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "55908123251",
+    "firebase_url": "https://androidstudioprojects-72259.firebaseio.com",
+    "project_id": "androidstudioprojects-72259",
+    "storage_bucket": "androidstudioprojects-72259.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:55908123251:android:822f47e5857a284a",
+        "android_client_info": {
+          "package_name": "com.moringaschool.gamerpro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "55908123251-g1cb664ubtlvt5vgojdsguppqhicqq0o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moringaschool.gamerpro",
+            "certificate_hash": "c0ea94b1fc9788e21fc85aa17f0880ba309b43fb"
+          }
+        },
+        {
+          "client_id": "55908123251-5c7pu2t6m81uoklfgbck5qdl8pbhq8t8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBX7A5V8l0BdDybnv2V8YpXdQG7FyuHAls"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "55908123251-5c7pu2t6m81uoklfgbck5qdl8pbhq8t8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

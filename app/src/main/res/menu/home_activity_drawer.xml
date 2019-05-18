@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/baseline_home_black_18dp"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_mygames"
+            android:icon="@drawable/baseline_games_black_18dp"
+            android:title="My Games" />
+
+        <item
+            android:id="@+id/nav_platforms"
+            android:icon="@drawable/gamepad"
+            android:title="Platforms" />
+        <item
+            android:id="@+id/nav_backup"
+            android:icon="@drawable/baseline_backup_black_18dp"
+            android:title="Backup" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/menu_share" />
+            <item
+                android:id="@+id/nav_help"
+                android:icon="@drawable/baseline_help_black_18dp"
+                android:title="Help"/>
+            <item
+                android:id="@+id/nav_rate"
+                android:icon="@drawable/baseline_star_rate_black_18dp"
+                android:title="Rate"/>
+        </menu>
+    </item>
+
+</menu>
