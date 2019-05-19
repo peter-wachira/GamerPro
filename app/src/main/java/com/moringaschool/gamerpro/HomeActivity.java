@@ -116,6 +116,9 @@ public class HomeActivity extends AppCompatActivity
         }else if (id == R.id.nav_rate) {
 
         }
+        else if (id == R.id.nav_games) {
+
+        }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

@@ -1,11 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".HomeActivity"
-    tools:showIn="@layout/app_bar_home">
+    tools:showIn="@layout/app_bar_home"
+    android:background="@drawable/purplebg">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="188dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="320dp">
+
+        <ImageView
+            android:id="@+id/nav_mygames"
+            android:layout_width="148dp"
+            android:layout_height="115dp"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_alignEnd="@+id/left"
+            android:src="@drawable/gamerhead" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="148dp"
+            android:layout_height="42dp"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:text="My Games"
+            android:textAlignment="center"
+            android:textAppearance="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+            android:textSize="20dp" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="143dp"
+            android:layout_height="115dp"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:layout_alignEnd="@+id/right" />
+
+
+    </GridLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="188dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="498dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/appCompatTextView"
+            android:layout_width="148dp"
+            android:layout_height="42dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:text="Platforms"
+            android:textAlignment="center"
+            android:textAppearance="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:id="@+id/nav_platforms"
+            android:layout_width="148dp"
+            android:layout_height="115dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_alignEnd="@+id/left"
+            android:src="@drawable/Gamer" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="148dp"
+            android:layout_height="42dp"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:text="Games"
+            android:textAlignment="center"
+            android:textAppearance="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+            android:textSize="20dp" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="143dp"
+            android:layout_height="115dp"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:src="@drawable/gamepad"
+            android:id="@+id/nav_games"
+            android:layout_alignEnd="@+id/right" />
+
+
+    </GridLayout>
+
+
+
+</>
