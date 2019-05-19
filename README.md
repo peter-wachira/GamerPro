@@ -1,5 +1,5 @@
 ## Peter Wachira
-## BarterPata May 13th 2019
+## GamerPro May 13th 2019
 
 ![](https://img.shields.io/badge/Android-project-brightgreen.svg)
 ![](https://img.shields.io/badge/Language-Java%20-orange.svg)
