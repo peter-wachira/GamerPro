@@ -9,11 +9,12 @@ import okhttp3.Request;
 
 public class GiantBombService {
 
-    public static void findPlatforms(String games, Callback callback){
+    public static void findPlatforms(String aliases,String filter, Callback callback){
         OkHttpClient client = new OkHttpClient.Builder()
                 .build();
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.   GIANTBOMB_BASE_URL).newBuilder();
-        urlBuilder.addQueryParameter(Constants.GIANTBOMB_PLATFORMS__QUERY_PARAMETER, games);
+        urlBuilder.addQueryParameter(Constants.GIANTBOMB_PLATFORMS__QUERY_PARAMETER, aliases);
+        urlBuilder.addQueryParameter(Constants.GIANTBOMB_SORT_QUERY_PARAMETER,filter);
 
         String url = urlBuilder.build().toString();
 

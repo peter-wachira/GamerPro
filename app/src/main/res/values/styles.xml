@@ -18,7 +18,7 @@
     </style>
 
 
-    <style name="NoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar"></style>
+    <style name="NoActionBarTheme" parent="Theme.AppCompat.NoActionBar"></style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>

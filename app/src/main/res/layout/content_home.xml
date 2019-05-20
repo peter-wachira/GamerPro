@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="188dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="320dp">
+        android:layout_marginBottom="240dp">
 
         <ImageView
             android:id="@+id/nav_mygames"
@@ -48,14 +48,12 @@
 
     <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="188dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="498dp">
+        android:layout_height="250dp">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/appCompatTextView"
             android:layout_width="148dp"
-            android:layout_height="42dp"
+            android:layout_height="80dp"
             android:layout_row="1"
             android:layout_column="0"
             android:text="Platforms"
@@ -70,11 +68,11 @@
             android:layout_row="0"
             android:layout_column="0"
             android:layout_alignEnd="@+id/left"
-            android:src="@drawable/Gamer" />
+            android:src="@drawable/gamer" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="148dp"
-            android:layout_height="42dp"
+            android:layout_height="80dp"
             android:layout_row="1"
             android:layout_column="2"
             android:text="Games"
@@ -84,17 +82,17 @@
 
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/nav_games"
             android:layout_width="143dp"
             android:layout_height="115dp"
             android:layout_row="0"
             android:layout_column="2"
-            android:src="@drawable/gamepad"
-            android:id="@+id/nav_games"
-            android:layout_alignEnd="@+id/right" />
+            android:layout_alignEnd="@+id/right"
+            android:src="@drawable/gamepad" />
 
 
     </GridLayout>
 
 
 
-</>
+</RelativeLayout >
