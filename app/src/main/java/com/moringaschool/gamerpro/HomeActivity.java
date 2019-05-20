@@ -31,6 +31,9 @@ public class HomeActivity extends AppCompatActivity
     TextView username;
     @BindView(R.id.useremail)
     TextView useremail;
+    @BindView(R.id.filter) TextView filter;
+    @BindView(R.id.platforms) TextView platforms;
+    @BindView(R.id.games) TextView games;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,7 +107,8 @@ public class HomeActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
             // Handle the camera action
         } else if (id == R.id.nav_mygames) {
-
+            Intent intent = new Intent(HomeActivity.this,GamesDisplay.class);
+            startActivity(intent);
         } else if (id == R.id.nav_platforms) {
 
         } else if (id == R.id.nav_backup) {
@@ -119,6 +123,7 @@ public class HomeActivity extends AppCompatActivity
         else if (id == R.id.nav_games) {
 
         }
+
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

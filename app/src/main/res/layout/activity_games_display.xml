@@ -1,9 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GamesDisplay">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="274dp"
+        android:layout_height="96dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="81dp"
+        android:layout_marginBottom="515dp"
+        tools:layout_editor_absoluteX="225dp"
+        android:id="@+id/filter"
+        android:hint="filter"
+        tools:layout_editor_absoluteY="137dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="274dp"
+        android:id="@+id/platforms"
+        android:layout_height="96dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="73dp"
+        android:layout_marginBottom="329dp"
+        tools:layout_editor_absoluteX="225dp"
+        tools:layout_edor_absoluteY="13"
+        android:hint="platforms"
+        ></com.google.android.material.textfield.TextInputEditText>
+
+    <Button
+        android:id="@+id/trigger"
+        android:layout_width="187dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="116dp"
+        android:layout_marginBottom="253dp"
+        android:text="Button" />
+</RelativeLayout>
