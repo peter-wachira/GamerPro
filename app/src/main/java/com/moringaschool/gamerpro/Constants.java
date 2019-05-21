@@ -8,8 +8,11 @@ public class Constants {
 
     public static final String GIANTBOMB_GAME__QUERY_PARAMETER = "platforms";
 
+    public static final String GIANTBOMB__QUERY_PARAMETER = "format";
 
-//    public static final String GIANTBOMB_SORT_QUERY_PARAMETER = "filter";
+
+
+
 
 
 }

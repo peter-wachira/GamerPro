@@ -19,6 +19,7 @@ package com.moringaschool.gamerpro;
         import okhttp3.Response;
 
 public class GamesDisplay extends AppCompatActivity implements View.OnClickListener{
+    public static final String TAG = GamesDisplay.class.getSimpleName();
     @BindView(R.id.platforms)
     EditText platforms;
     @BindView(R.id.filter) EditText filter;
@@ -31,8 +32,16 @@ public class GamesDisplay extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_games_display);
 
     }
+    @Override
+    public void onClick(View v) {
+        if( v == trigger){
 
-    public static final String TAG = GamesDisplay.class.getSimpleName();
+            String platformz = platforms.getText().toString();
+
+            getGames(platformz);
+        }
+    }
+
 
     private void getGames(String platforms) {
 
@@ -59,13 +68,5 @@ public class GamesDisplay extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    @Override
-    public void onClick(View v) {
-        if( v == trigger){
 
-            String platformz = platforms.getText().toString();
-
-            getGames(platformz);
-        }
-    }
 }
