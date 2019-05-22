@@ -12,8 +12,10 @@ package com.moringaschool.gamerpro;
         import androidx.appcompat.widget.ButtonBarLayout;
 
         import java.io.IOException;
+        import java.util.ArrayList;
 
         import butterknife.BindView;
+        import butterknife.ButterKnife;
         import okhttp3.Call;
         import okhttp3.Callback;
         import okhttp3.Response;
@@ -26,12 +28,20 @@ public class GamesDisplay extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.trigger)
     Button trigger;
 
+    public ArrayList<GameModel> mGames =new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_games_display);
+        ButterKnife.bind(this);
+        trigger.setOnClickListener(this);
 
     }
+
+
+
+
     @Override
     public void onClick(View v) {
         if( v == trigger){
@@ -41,13 +51,12 @@ public class GamesDisplay extends AppCompatActivity implements View.OnClickListe
             getGames(platformz);
         }
     }
-
-
     private void getGames(String platforms) {
 
         final GiantBombService giantBombService = new GiantBombService();
 
         giantBombService.findGames( platforms, new Callback() {
+
 
             @Override
             public void onFailure(Call call, IOException e) {
@@ -56,17 +65,31 @@ public class GamesDisplay extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                try {
-                    String jsonData = response.body().string();
-                    Log.v(TAG, jsonData);
-                } catch (IOException e) {
-                    e.printStackTrace();
+
+//                    String jsonData = response.body().string();
+                    if (response.isSuccessful()) {
+//                        Log.v(TAG, jsonData);
+                        mGames = GiantBombService.processresults(response);
+
+                        Log.v("heyy",response.body().string());
+                        GamesDisplay.this.runOnUiThread(new Runnable() {
+
+                            @Override
+                            public void run() {
+                            }
+
+                        });
+                    }
                 }
-            }
+
         });
 
 
     }
+
+
+
+
 
 
 }

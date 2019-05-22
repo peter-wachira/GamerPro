@@ -1,47 +1,61 @@
 package com.moringaschool.gamerpro;
 
+import java.util.ArrayList;
+
 public class GameModel {
 
-    private  String mDescription;
-    private  String mPlatforms;
+    private  String mDeck;
+    private ArrayList<String> Platforms = new ArrayList<>();
+
     private  String mDateadded;
-
-    public String getmDescription() {
-        return mDescription;
-    }
-
-    public String getmPlatforms() {
-        return mPlatforms;
-    }
-
-    public String getmDateadded() {
-        return mDateadded;
-    }
-
-    public String getmExpectedrelease() {
-        return mExpectedrelease;
-    }
-
-    public String getmAliases() {
-        return mAliases;
-    }
-
-    public String getmName() {
-        return mName;
-    }
-
-    private  String mExpectedrelease;
+    private  String mOriginalrelease;
     private  String mAliases;
     private  String mName;
+    private String mImages;
 
-    public GameModel(String description, String platforms, String dateadded, String expectedrelease, String aliases, String name) {
+    public GameModel(String mDeck, ArrayList<String> platforms, String mDateadded, String mOriginalrelease, String mAliases, String mName, String mImages) {
+        this.mDeck = mDeck;
+        Platforms = platforms;
+        this.mDateadded = mDateadded;
+        this.mOriginalrelease = mOriginalrelease;
+        this.mAliases = mAliases;
+        this.mName = mName;
+        this.mImages = mImages;
+    }
 
-    this.mAliases = aliases;
-    this.mDateadded =dateadded;
-    this.mDescription =description;
-    this.mExpectedrelease = expectedrelease;
-    this.mName = name;
-    this.mPlatforms =platforms;
+    public void setmDeck(String mDeck) {
+        this.mDeck = mDeck;
+    }
 
+    public ArrayList<String> getPlatforms() {
+        return Platforms;
+    }
+
+    public void setPlatforms(ArrayList<String> platforms) {
+        Platforms = platforms;
+    }
+
+    public void setmDateadded(String mDateadded) {
+        this.mDateadded = mDateadded;
+    }
+
+    public String getmOriginalrelease() {
+        return mOriginalrelease;
+    }
+
+    public void setmOriginalrelease(String mOriginalrelease) {
+        this.mOriginalrelease = mOriginalrelease;
+    }
+
+    public void setmAliases(String mAliases) {
+        this.mAliases = mAliases;
+    }
+
+    public void setmName(String mName) {
+        this.mName = mName;
+    }
+
+    public void setmImages(String mImages) {
+        this.mImages = mImages;
     }
 }
