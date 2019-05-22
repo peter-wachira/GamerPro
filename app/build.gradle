@@ -46,6 +46,8 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
     implementation 'com.google.firebase:firebase-auth:16.0.5'
     implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'org.parceler:parceler-api:1.1.12'
+    annotationProcessor 'org.parceler:parceler:1.1.12'
 
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
     testImplementation "org.robolectric:robolectric:4.2"

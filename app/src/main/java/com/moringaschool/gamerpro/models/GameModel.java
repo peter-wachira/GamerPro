@@ -1,7 +1,8 @@
 package com.moringaschool.gamerpro.models;
+import org.parceler.Parcel;
 
 import java.util.ArrayList;
-
+@Parcel
 public class GameModel {
 
     private  String mDeck;
