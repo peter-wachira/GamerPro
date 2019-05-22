@@ -4,12 +4,16 @@ package com.moringaschool.gamerpro;
         import android.os.Bundle;
         import android.util.Log;
         import android.view.View;
+        import android.widget.Adapter;
+        import android.widget.ArrayAdapter;
         import android.widget.Button;
         import android.widget.EditText;
+        import android.widget.ListView;
         import android.widget.TextView;
 
         import androidx.appcompat.app.AppCompatActivity;
         import androidx.appcompat.widget.ButtonBarLayout;
+        import androidx.recyclerview.widget.RecyclerView;
 
         import java.io.IOException;
         import java.util.ArrayList;
@@ -24,9 +28,11 @@ public class GamesDisplay extends AppCompatActivity implements View.OnClickListe
     public static final String TAG = GamesDisplay.class.getSimpleName();
     @BindView(R.id.platforms)
     EditText platforms;
-    @BindView(R.id.filter) EditText filter;
+    @BindView(R.id.gamelistview)
+    RecyclerView mRecyclerView;
     @BindView(R.id.trigger)
     Button trigger;
+
 
     public ArrayList<GameModel> mGames =new ArrayList<>();
 
@@ -66,16 +72,19 @@ public class GamesDisplay extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onResponse(Call call, Response response) throws IOException {
 
-//                    String jsonData = response.body().string();
                     if (response.isSuccessful()) {
-//                        Log.v(TAG, jsonData);
                         mGames = GiantBombService.processresults(response);
-
-                        Log.v("heyy",response.body().string());
                         GamesDisplay.this.runOnUiThread(new Runnable() {
 
                             @Override
                             public void run() {
+
+                                String gameNames[]= new String[mGames.size()];
+                                for (int i = 0; i < gameNames.length; i++) {
+                                    gameNames[i] = mGames.get(i).getmName();
+                                }
+
+
                             }
 
                         });

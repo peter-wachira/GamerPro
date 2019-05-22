@@ -13,6 +13,10 @@ public class GameModel {
     private  String mName;
     private String mImages;
 
+    public String getmName() {
+        return mName;
+    }
+
     public GameModel(String mDeck, ArrayList<String> platforms, String mDateadded, String mOriginalrelease, String mAliases, String mName, String mImages) {
         this.mDeck = mDeck;
         Platforms = platforms;

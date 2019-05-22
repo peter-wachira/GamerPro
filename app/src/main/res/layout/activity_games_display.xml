@@ -8,37 +8,35 @@
 
 
     <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="274dp"
-        android:layout_height="96dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="81dp"
-        android:layout_marginBottom="515dp"
-        tools:layout_editor_absoluteX="225dp"
-        android:id="@+id/filter"
-        android:hint="filter"
-        tools:layout_editor_absoluteY="137dp" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="274dp"
         android:id="@+id/platforms"
-        android:layout_height="96dp"
+        android:layout_width="211dp"
+        android:layout_height="56dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="73dp"
-        android:layout_marginBottom="329dp"
-        tools:layout_editor_absoluteX="225dp"
-        tools:layout_edor_absoluteY="13"
+        android:layout_marginEnd="161dp"
+        android:layout_marginBottom="654dp"
         android:hint="platforms"
-        ></com.google.android.material.textfield.TextInputEditText>
+        tools:layout_editor_absoluteX="225dp"
+        tools:layout_edor_absoluteY="13"></com.google.android.material.textfield.TextInputEditText>
+
+
 
     <Button
         android:id="@+id/trigger"
-        android:layout_width="187dp"
-        android:layout_height="wrap_content"
+        android:layout_width="104dp"
+        android:layout_height="33dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="116dp"
-        android:layout_marginBottom="253dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="666dp"
         android:text="Button" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:id="@+id/recyclerView"
+        ></androidx.recyclerview.widget.RecyclerView>
+
+
 </RelativeLayout>

@@ -41,10 +41,12 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.jakewharton:butterknife:10.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.android.support:recyclerview-v7:+'
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
     implementation 'com.google.firebase:firebase-auth:16.0.5'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
     testImplementation "org.robolectric:robolectric:4.2"
+
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'

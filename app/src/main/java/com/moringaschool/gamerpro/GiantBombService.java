@@ -22,6 +22,7 @@ import okhttp3.ResponseBody;
 
 public class GiantBombService {
     public static final String jsonformat = "json";
+    private static final String TAG = "GiantBombService";
 
     public static void findGames(String platforms, Callback callback) {
 
@@ -56,10 +57,11 @@ public class GiantBombService {
 
 
         ArrayList<GameModel> games = new ArrayList<>();
-        System.out.println(response.body().toString());
-/*        try {
+        try {
 
             String jsonData = response.body().string();
+            Log.v(TAG, jsonData);
+
             JSONObject giantbombJSON = new JSONObject(jsonData);
             JSONArray gameGBJSON = giantbombJSON.getJSONArray("results");
 
@@ -78,7 +80,7 @@ public class GiantBombService {
                     String deck = gameJSON.getString("deck");
 
 
-                    String images = giantbombJSON.getJSONObject("image").getString("icon_url");
+                    String images = gameJSON.getJSONObject("image").getString("icon_url");
 
 
                     ArrayList<String> platforms = new ArrayList<>();
@@ -100,7 +102,8 @@ public class GiantBombService {
             e.printStackTrace();
         } catch (JSONException e) {
             e.printStackTrace();
-        }*/
+        }
+        Log.d(TAG, "processresults: done");
         return games;
 
     }
