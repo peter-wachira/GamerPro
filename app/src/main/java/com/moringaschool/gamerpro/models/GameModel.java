@@ -1,4 +1,4 @@
-package com.moringaschool.gamerpro;
+package com.moringaschool.gamerpro.models;
 
 import java.util.ArrayList;
 

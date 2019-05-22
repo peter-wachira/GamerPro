@@ -1,4 +1,6 @@
-package com.moringaschool.gamerpro;
+package com.moringaschool.gamerpro.Constants;
+
+import com.moringaschool.gamerpro.BuildConfig;
 
 public class Constants {
     public static final String GIANTBOMB_TOKEN = BuildConfig.GIANTBOMB_TOKEN;

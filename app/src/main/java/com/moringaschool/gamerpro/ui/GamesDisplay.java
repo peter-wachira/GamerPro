@@ -1,20 +1,18 @@
-package com.moringaschool.gamerpro;
+package com.moringaschool.gamerpro.ui;
 
-        import android.content.Intent;
         import android.os.Bundle;
-        import android.util.Log;
         import android.view.View;
-        import android.widget.Adapter;
-        import android.widget.ArrayAdapter;
         import android.widget.Button;
         import android.widget.EditText;
-        import android.widget.ListView;
-        import android.widget.TextView;
 
         import androidx.appcompat.app.AppCompatActivity;
-        import androidx.appcompat.widget.ButtonBarLayout;
         import androidx.recyclerview.widget.LinearLayoutManager;
         import androidx.recyclerview.widget.RecyclerView;
+
+        import com.moringaschool.gamerpro.models.GameModel;
+        import com.moringaschool.gamerpro.services.GiantBombService;
+        import com.moringaschool.gamerpro.R;
+        import com.moringaschool.gamerpro.adapters.GameListAdapter;
 
         import java.io.IOException;
         import java.util.ArrayList;

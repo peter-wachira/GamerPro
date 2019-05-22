@@ -1,6 +1,9 @@
-package com.moringaschool.gamerpro;
+package com.moringaschool.gamerpro.services;
 
 import android.util.Log;
+
+import com.moringaschool.gamerpro.Constants.Constants;
+import com.moringaschool.gamerpro.models.GameModel;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -13,12 +16,9 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.HttpUrl;
-import okhttp3.Interceptor;
-import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import okhttp3.ResponseBody;
 
 public class GiantBombService {
     public static final String jsonformat = "json";

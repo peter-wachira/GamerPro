@@ -1,4 +1,4 @@
-package com.moringaschool.gamerpro;
+package com.moringaschool.gamerpro.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
+import com.moringaschool.gamerpro.R;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -106,7 +107,7 @@ public class HomeActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
             // Handle the camera action
         } else if (id == R.id.nav_mygames) {
-            Intent intent = new Intent(HomeActivity.this,GamesDisplay.class);
+            Intent intent = new Intent(HomeActivity.this, GamesDisplay.class);
             startActivity(intent);
         } else if (id == R.id.nav_platforms) {
 

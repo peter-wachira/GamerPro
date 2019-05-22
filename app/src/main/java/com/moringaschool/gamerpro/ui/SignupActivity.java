@@ -1,4 +1,4 @@
-package com.moringaschool.gamerpro;
+package com.moringaschool.gamerpro.ui;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -11,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.moringaschool.gamerpro.R;
 
 import butterknife.ButterKnife;
 import butterknife.BindView;
@@ -71,7 +73,7 @@ public class SignupActivity extends AppCompatActivity {
         String number = _numberText.getText().toString();
         String password = _passwordText.getText().toString();
 
-        Intent intent = new Intent(SignupActivity.this,HomeActivity.class);
+        Intent intent = new Intent(SignupActivity.this, HomeActivity.class);
         intent.putExtra("useremail",email);
         startActivity(intent);
         // signup logic .

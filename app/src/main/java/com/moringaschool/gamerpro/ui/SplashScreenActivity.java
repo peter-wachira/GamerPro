@@ -1,4 +1,4 @@
-package com.moringaschool.gamerpro;
+package com.moringaschool.gamerpro.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.TextView;
+
+import com.moringaschool.gamerpro.R;
+import com.moringaschool.gamerpro.ui.Login;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,7 +27,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                     @Override
                     public void run() {
 
-                        Intent intent = new Intent(getApplicationContext(),Login.class);
+                        Intent intent = new Intent(getApplicationContext(), Login.class);
                         startActivity(intent);
 
 

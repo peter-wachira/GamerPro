@@ -1,4 +1,4 @@
-package com.moringaschool.gamerpro;
+package com.moringaschool.gamerpro.ui;
 
 
 import android.app.ProgressDialog;
@@ -12,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.moringaschool.gamerpro.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

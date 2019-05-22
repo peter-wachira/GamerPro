@@ -1,4 +1,4 @@
-package com.moringaschool.gamerpro;
+package com.moringaschool.gamerpro.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,9 +7,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.moringaschool.gamerpro.models.GameModel;
+import com.moringaschool.gamerpro.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
