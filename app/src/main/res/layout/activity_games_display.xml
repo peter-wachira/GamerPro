@@ -13,12 +13,11 @@
         android:layout_height="56dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="161dp"
-        android:layout_marginBottom="654dp"
+        android:layout_marginEnd="117dp"
+        android:layout_marginBottom="583dp"
         android:hint="platforms"
         tools:layout_editor_absoluteX="225dp"
         tools:layout_edor_absoluteY="13"></com.google.android.material.textfield.TextInputEditText>
-
 
 
     <Button
@@ -27,16 +26,15 @@
         android:layout_height="33dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="666dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="591dp"
         android:text="Button" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
         android:id="@+id/recyclerView"
-        ></androidx.recyclerview.widget.RecyclerView>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"></androidx.recyclerview.widget.RecyclerView>
 
 
 </RelativeLayout>

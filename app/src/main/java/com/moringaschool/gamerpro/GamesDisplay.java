@@ -13,6 +13,7 @@ package com.moringaschool.gamerpro;
 
         import androidx.appcompat.app.AppCompatActivity;
         import androidx.appcompat.widget.ButtonBarLayout;
+        import androidx.recyclerview.widget.LinearLayoutManager;
         import androidx.recyclerview.widget.RecyclerView;
 
         import java.io.IOException;
@@ -28,12 +29,11 @@ public class GamesDisplay extends AppCompatActivity implements View.OnClickListe
     public static final String TAG = GamesDisplay.class.getSimpleName();
     @BindView(R.id.platforms)
     EditText platforms;
-    @BindView(R.id.gamelistview)
-    RecyclerView mRecyclerView;
+    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
     @BindView(R.id.trigger)
     Button trigger;
 
-
+    private GameListAdapter mAdapter;
     public ArrayList<GameModel> mGames =new ArrayList<>();
 
     @Override
@@ -79,12 +79,12 @@ public class GamesDisplay extends AppCompatActivity implements View.OnClickListe
                             @Override
                             public void run() {
 
-                                String gameNames[]= new String[mGames.size()];
-                                for (int i = 0; i < gameNames.length; i++) {
-                                    gameNames[i] = mGames.get(i).getmName();
-                                }
-
-
+                                mAdapter = new GameListAdapter(getApplicationContext(), mGames);
+                                mRecyclerView.setAdapter(mAdapter);
+                                RecyclerView.LayoutManager layoutManager =
+                                        new LinearLayoutManager(GamesDisplay.this);
+                                mRecyclerView.setLayoutManager(layoutManager);
+                                mRecyclerView.setHasFixedSize(true);
                             }
 
                         });

@@ -31,7 +31,6 @@ public class HomeActivity extends AppCompatActivity
     TextView username;
     @BindView(R.id.useremail)
     TextView useremail;
-    @BindView(R.id.filter) TextView filter;
     @BindView(R.id.platforms) TextView platforms;
     @BindView(R.id.games) TextView games;
     @Override

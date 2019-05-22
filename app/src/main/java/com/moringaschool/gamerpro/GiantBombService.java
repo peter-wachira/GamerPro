@@ -75,12 +75,12 @@ public class GiantBombService {
 
                     String aliases = gameJSON.getString("aliases");
 
-                    String dateadded = gameJSON.getString("date_added");
+                    String dateadded = gameJSON.getString("date_added").substring(0,10);
 
                     String deck = gameJSON.getString("deck");
 
 
-                    String images = gameJSON.getJSONObject("image").getString("icon_url");
+                    String images = gameJSON.getJSONObject("image").getString("medium_url");
 
 
                     ArrayList<String> platforms = new ArrayList<>();

@@ -17,6 +17,22 @@ public class GameModel {
         return mName;
     }
 
+    public String getmDeck() {
+        return mDeck;
+    }
+
+    public String getmDateadded() {
+        return mDateadded;
+    }
+
+    public String getmAliases() {
+        return mAliases;
+    }
+
+    public String getmImages() {
+        return mImages;
+    }
+
     public GameModel(String mDeck, ArrayList<String> platforms, String mDateadded, String mOriginalrelease, String mAliases, String mName, String mImages) {
         this.mDeck = mDeck;
         Platforms = platforms;
