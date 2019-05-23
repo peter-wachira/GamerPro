@@ -5,23 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.SplashScreenActivity"
-    android:background="@drawable/gradient1" >
-
-
+    android:background="#2d2d2d" >
 
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/appNameTextView"
-        android:layout_width="298dp"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="91dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="53dp"
-        android:layout_marginBottom="368dp"
-        android:fontFamily="sans-serif-condensed"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="397dp"
+        android:fontFamily="@font/coiny"
         android:text="GamerPro.."
-        android:textColor="#fff"
         android:textAlignment="center"
+        android:textColor="#fff"
         android:textSize="60dp" />
 
 
@@ -32,7 +30,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="86dp"
         android:layout_marginBottom="156dp"
-        android:src="@drawable/gamerhead" />
+        android:src="@drawable/gamerhead"
+        tools:visibility="visible" />
 
     <ProgressBar
         android:id="@+id/progressBar"

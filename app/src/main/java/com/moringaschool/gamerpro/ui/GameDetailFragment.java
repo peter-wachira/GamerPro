@@ -24,8 +24,8 @@ public class GameDetailFragment extends Fragment {
 
     @BindView(R.id.gameImageView)
     ImageView mGameImageView;
-    @BindView(R.id.gameName)
-    TextView mGameNameTextView;
+//    @BindView(R.id.gameName)
+//    TextView mGameNameTextView;
     @BindView(R.id.platformName)
     TextView mPlatformNameTextView;
     @BindView(R.id.gameDeck)
@@ -61,7 +61,7 @@ public class GameDetailFragment extends Fragment {
         ButterKnife.bind(this, view);
 
 
-        mGameNameTextView.setText(game.getmName());
+//        mPlatformNameTextView.setText(game.getmName());
         mPlatformNameTextView.setText(game.getPlatforms().get(0));
         maliasesNameTextView.setText(game.getmAliases());
         mOriginalReleaseTextView.setText(game.getmDateadded());

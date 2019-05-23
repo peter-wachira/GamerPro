@@ -19,43 +19,40 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="126dp"
+            android:layout_alignParentStart="true"
             android:background="@android:color/white"
-            android:paddingTop="20dp"
             android:paddingLeft="10dp"
+            android:paddingTop="20dp"
             android:paddingRight="10dp"
             android:paddingBottom="20dp">
 
             <TextView
+                android:id="@+id/platformName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="49dp"
+                android:layout_marginBottom="64dp"
                 android:text="Game Name"
-                android:id="@+id/gameName"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:textSize="20sp"
                 android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="platform"
-                android:id="@+id/ratingTextView"
-                android:layout_alignTop="@+id/platformName"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:textColor="@color/colorAccent"
-                android:textStyle="bold" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Deck"
                 android:id="@+id/gameDeck"
-                android:layout_below="@+id/platformName"
-                android:layout_alignParentLeft="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/gameName"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="88dp"
+                android:layout_marginLeft="88dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="6dp"
+                android:text="Deck"
                 android:textColor="#2d2d2d"
                 android:textStyle="italic" />
         </RelativeLayout>
@@ -71,7 +68,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_above="@+id/saveRestaurantButton"
+                android:layout_above="@+id/saveGameButton"
                 android:paddingLeft="30dp"
                 android:paddingTop="20dp"
                 android:paddingRight="30dp">
@@ -129,6 +126,9 @@
                 android:text="Save Game"
                 android:textColor="#2d2d2d"
                 android:textSize="15sp" />
+
+
+
         </RelativeLayout>
     </LinearLayout>
 </FrameLayout>

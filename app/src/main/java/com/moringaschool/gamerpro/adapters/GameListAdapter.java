@@ -1,6 +1,7 @@
 package com.moringaschool.gamerpro.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.moringaschool.gamerpro.models.GameModel;
 import com.moringaschool.gamerpro.R;
+import com.moringaschool.gamerpro.ui.GameDetailActivity;
 import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -50,7 +54,7 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.GameVi
         return mGames.size();
     }
 
-    public class GameViewHolder extends RecyclerView.ViewHolder {
+    public class GameViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @BindView(R.id.gameImageView)
         ImageView mGameImageView;
         @BindView(R.id.gameName)
@@ -72,6 +76,7 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.GameVi
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
         }
 
         public void bindGame(GameModel game) {
@@ -80,6 +85,14 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.GameVi
             mAliasesNameTextView.setText(game.getmAliases());
             mDateAddedTextView.setText(game.getmDateadded());
             Picasso.get().load( game.getmImages()).into(mGameImageView);
+        }
+        @Override
+        public void onClick(View v) {
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, GameDetailActivity.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("games", Parcels.wrap(mGames));
+            mContext.startActivity(intent);
         }
     }
 }

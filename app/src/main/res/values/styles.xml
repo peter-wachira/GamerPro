@@ -3,7 +3,6 @@
     <!-- Base application theme. -->
 
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorAccent"></item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
         .....

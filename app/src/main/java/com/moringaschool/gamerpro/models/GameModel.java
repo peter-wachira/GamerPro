@@ -34,6 +34,7 @@ public class GameModel {
         return mImages;
     }
 
+    public  GameModel(){}
     public GameModel(String mDeck, ArrayList<String> platforms, String mDateadded, String mOriginalrelease, String mAliases, String mName, String mImages) {
         this.mDeck = mDeck;
         Platforms = platforms;
