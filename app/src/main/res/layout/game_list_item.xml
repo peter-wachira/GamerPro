@@ -5,7 +5,7 @@
     android:layout_width="450dp"
     android:layout_height="140dp"
     android:paddingStart="20dp"
-    android:background="#EFFBFF">
+    android:background="#000000">
 
     <ImageView
         android:id="@+id/gameImageView"
@@ -17,7 +17,7 @@
     <LinearLayout
         android:layout_width="400dp"
         android:layout_height="match_parent"
-        android:background="#EFFBFF"
+        android:background="#000000"
         android:orientation="vertical"
         android:padding="10dp">
 
@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Game Name"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorAccent"
             android:textSize="17sp"
             android:textStyle="bold" />
 
@@ -38,6 +38,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:text="platform"
+            android:textColor="#fff"
             android:textStyle="italic" />
 
         <RelativeLayout
@@ -49,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="aliases"
-                android:textColor="@color/colorAccent" />
+                android:textColor="#fff" />
 
             <TextView
                 android:id="@+id/dateAdded"
@@ -57,8 +58,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="40dp"
-                android:text="dateAdded"
-                android:textColor="@color/colorAccent" />
+                android:textColor="#fff"
+               />
 
         </RelativeLayout>
     </LinearLayout>

@@ -8,7 +8,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/gradient2">
+        android:background="#2d2d2d">
 
         <ImageView
             android:layout_width="match_parent"
@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="126dp"
             android:layout_alignParentStart="true"
-            android:background="@android:color/white"
+            android:background="#000"
             android:paddingLeft="10dp"
             android:paddingTop="20dp"
             android:paddingRight="10dp"
@@ -35,8 +35,8 @@
                 android:layout_marginLeft="49dp"
                 android:layout_marginBottom="64dp"
                 android:text="Game Name"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="20sp"
+                android:textColor="@color/colorAccent"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
 
@@ -53,13 +53,14 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="6dp"
                 android:text="Deck"
-                android:textColor="#2d2d2d"
+                android:textColor="#fff"
                 android:textStyle="italic" />
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="#000">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -71,6 +72,7 @@
                 android:layout_above="@+id/saveGameButton"
                 android:paddingLeft="30dp"
                 android:paddingTop="20dp"
+                android:background="#212121"
                 android:paddingRight="30dp">
 
                 <TextView
@@ -80,7 +82,7 @@
                     android:id="@+id/websiteTextView"
                     android:drawableLeft="@drawable/baseline_exit_to_app_black_18dp"
                     android:drawablePadding="4dp"
-                    android:textColor="#FF4081"
+                    android:textColor="#fff"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="10dp"
@@ -93,7 +95,7 @@
                     android:id="@+id/aliasesName"
                     android:drawableLeft="@drawable/baseline_star_rate_black_18dp"
                     android:drawablePadding="4dp"
-                    android:textColor="#FF4081"
+                    android:textColor="#fff"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="10dp"
@@ -106,7 +108,7 @@
                     android:drawableLeft="@drawable/baseline_new_releases_black_18dp"
                     android:drawablePadding="4dp"
                     android:id="@+id/original_release"
-                    android:textColor="#FF4081"
+                    android:textColor="#fff"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="10dp"
@@ -121,10 +123,9 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginEnd="49dp"
-                android:layout_marginBottom="98dp"
-                android:background="@color/colorAccent"
+                android:layout_marginBottom="87dp"
                 android:text="Save Game"
-                android:textColor="#2d2d2d"
+                android:textColor="#fff"
                 android:textSize="15sp" />
 
 

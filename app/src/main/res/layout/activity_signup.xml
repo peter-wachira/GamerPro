@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true"
-    android:background="@drawable/gradient1"
+    android:background="#000"
     >
 
     <LinearLayout
@@ -31,7 +31,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapWords"
-            android:hint="Name" />
+            android:hint="Name"
+            android:textColor="#fff"
+            android:textColorHint="#fff"/>
 
 
         <!-- Email Label -->
@@ -42,7 +44,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:hint="Email" />
+            android:hint="Email"
+            android:textColorHint="#fff"
+            android:textColor="#fff"/>
 
         <!-- Number Label -->
 
@@ -52,7 +56,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:hint="Phone number" />
+            android:hint="Phone number"
+            android:textColor="#fff"
+            android:textColorHint="#fff"/>
 
         <!-- Password Label -->
 
@@ -61,6 +67,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
+            android:textColorHint="#fff"
+            android:textColor="#fff"
 
             android:inputType="textPassword"
             android:hint="Password"/>
@@ -82,6 +90,7 @@
             android:layout_marginBottom="24dp"
             android:gravity="center"
             android:text="Already a member? Login"
+            android:textColor="#fff"
             android:textSize="16dip" />
     </LinearLayout>
 

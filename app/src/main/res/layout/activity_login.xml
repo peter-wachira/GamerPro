@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true"
-    android:background="#2d2d2d"
+    android:background="#000"
     android:theme="@style/AppTheme.NoActionBar"
     >
 
@@ -32,7 +32,8 @@
             android:layout_height="wrap_content"
             android:hint="Email"
             android:textColorHint="#fff"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:textColor="#fff"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
@@ -48,6 +49,7 @@
             android:layout_height="wrap_content"
             android:hint="Password"
             android:textColorHint="#fff"
+            android:textColor="#fff"
             android:inputType="textPassword" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -71,6 +73,7 @@
             android:layout_marginBottom="24dp"
             android:gravity="center"
             android:text="No account yet? Create one"
+            android:textColor="#fff"
             android:textSize="16dip" />
     </LinearLayout>
 

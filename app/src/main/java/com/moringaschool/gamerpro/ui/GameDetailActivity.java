@@ -21,16 +21,6 @@ import butterknife.ButterKnife;
 import static com.moringaschool.gamerpro.R.layout.activity_game_detail;
 
 public class GameDetailActivity extends AppCompatActivity {
-//    @BindView(R.id.gameImageView)
-//    ImageView mGameImageView;
-//    @BindView(R.id.gameName)
-//    TextView  mGameNameTextView;
-//    @BindView(R.id.platformName)
-//    TextView  mPlatformNameTextView;
-//    @BindView(R.id.aliasesName)
-//    TextView  mAliasesNameTextView;
-//    @BindView(R.id.dateAdded)
-//    TextView  mDateAddedTextView;
     @BindView(R.id.viewPager)
     ViewPager mViewPager;
     private GamePagerAdapter adapterViewPager;

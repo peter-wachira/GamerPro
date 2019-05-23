@@ -80,7 +80,7 @@ public class GiantBombService {
                     String deck = gameJSON.getString("deck");
 
 
-                    String images = gameJSON.getJSONObject("image").getString("medium_url");
+                    String images = gameJSON.getJSONObject("image").getString("screen_large_url");
 
 
                     ArrayList<String> platforms = new ArrayList<>();

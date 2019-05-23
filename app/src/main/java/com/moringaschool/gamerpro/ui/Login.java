@@ -72,7 +72,7 @@ public class Login extends AppCompatActivity {
         final ProgressDialog progressDialog = new ProgressDialog(Login.this,
                 R.style.AppTheme);
         progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("Checking Information...");
+        progressDialog.setMessage("Verifying account...");
         progressDialog.show();
 
 

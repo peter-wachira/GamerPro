@@ -16,16 +16,15 @@
         <activity
             android:name=".ui.HomeActivity"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar" />
+            />
         <activity
             android:name=".ui.SignupActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+       />
         <activity
             android:name=".ui.Login"
-            android:theme="@style/AppTheme.NoActionBar" />
+          />
         <activity
-            android:name=".ui.SplashScreenActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".ui.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -12,6 +12,8 @@ public class Constants {
 
     public static final String GIANTBOMB__QUERY_PARAMETER = "format";
 
+    public static final String PREFERENCES_PLATFORM_KEY = "platform";
+
 
 
 

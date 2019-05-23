@@ -44,7 +44,6 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.GameVi
         return viewHolder;
 
     }
-
     @Override
     public void onBindViewHolder(GameListAdapter.GameViewHolder holder, int position) {
         holder.bindGame(mGames.get(position));

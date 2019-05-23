@@ -1,11 +1,13 @@
 package com.moringaschool.gamerpro.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.preference.PreferenceManager;
 import android.view.View;
 
 import androidx.core.view.GravityCompat;
@@ -22,25 +24,39 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class HomeActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-    @BindView(R.id.username)
-    TextView username;
-    @BindView(R.id.useremail)
-    TextView useremail;
-    @BindView(R.id.platforms) TextView platforms;
-    @BindView(R.id.games) TextView games;
+        implements NavigationView.OnNavigationItemSelectedListener ,View.OnClickListener{
+
+    @BindView(R.id.trigger)
+    Button trigger;
+    @BindView(R.id.platforms)
+    EditText platforms;
+
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_activity);
+        ButterKnife.bind(this);
+        trigger.setOnClickListener(this);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+        trigger.setOnClickListener(this);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -97,7 +113,17 @@ public class HomeActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+    @Override
+    public void onClick(View v) {
+        if( v == trigger){
 
+            String platformz = platforms.getText().toString();
+
+            Intent intent = new Intent(HomeActivity.this,GamesDisplay.class);
+            intent.putExtra("platforms",platformz);
+            startActivity(intent);
+        }
+    }
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -120,13 +146,12 @@ public class HomeActivity extends AppCompatActivity
         }else if (id == R.id.nav_rate) {
 
         }
-        else if (id == R.id.nav_games) {
-
-        }
 
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }

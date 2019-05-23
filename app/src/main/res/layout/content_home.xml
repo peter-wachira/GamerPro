@@ -7,10 +7,33 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".ui.HomeActivity"
     tools:showIn="@layout/app_bar_home"
-    android:background="#2d2d2d">
+    android:background="#000">
 
 
-    <SearchView
-        android:layout_width="match_parent"
-        android:layout_height="86dp" />
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/platforms"
+        android:layout_width="211dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="110dp"
+        android:layout_marginBottom="486dp"
+        android:hint="platforms"
+        android:textColor="#fff"
+        android:textColorHint="#fff"
+        tools:layout_editor_absoluteX="225dp"
+        tools:layout_edor_absoluteY="13" />
+
+
+    <Button
+        android:id="@+id/trigger"
+        android:layout_width="152dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="128dp"
+        android:layout_marginBottom="391dp"
+        android:text="Button" />
+
+
 </RelativeLayout >
