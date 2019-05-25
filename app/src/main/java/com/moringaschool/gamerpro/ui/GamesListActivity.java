@@ -81,7 +81,12 @@ public class GamesListActivity extends AppCompatActivity {
                             public void run() {
 
                                 mAdapter = new GameListAdapter(getApplicationContext(), mGames);
+
+
+
                                 mRecyclerView.setAdapter(mAdapter);
+
+
                                 RecyclerView.LayoutManager layoutManager =
                                         new LinearLayoutManager(GamesListActivity.this);
                                 mRecyclerView.setLayoutManager(layoutManager);

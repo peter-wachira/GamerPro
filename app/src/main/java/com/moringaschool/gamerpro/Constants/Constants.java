@@ -2,7 +2,7 @@ package com.moringaschool.gamerpro.Constants;
 
 import com.moringaschool.gamerpro.BuildConfig;
 
-public class Constants {
+public final class Constants {
     public static final String GIANTBOMB_TOKEN = BuildConfig.GIANTBOMB_TOKEN;
 
     public static final String GIANTBOMB_BASE_URL = "https://www.giantbomb.com/api/games/";
@@ -13,6 +13,10 @@ public class Constants {
     public static final String GIANTBOMB__QUERY_PARAMETER = "format";
 
     public static final String PREFERENCES_PLATFORM_KEY = "platform";
+
+
+    public static final String FIREBASE_CHILD_SEARCHED_PLATFORM = "searchedPlatform";
+
 
 
 
