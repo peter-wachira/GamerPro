@@ -16,6 +16,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.moringaschool.gamerpro.Constants.Constants;
 import com.moringaschool.gamerpro.R;
 
@@ -42,29 +44,31 @@ public class HomeActivity extends AppCompatActivity
 
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
-
+    private DatabaseReference mSearchedPlatformReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        mSearchedPlatformReference = FirebaseDatabase
+                .getInstance()
+                .getReference()
+                .child(Constants.FIREBASE_CHILD_SEARCHED_PLATFORM);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_activity);
         ButterKnife.bind(this);
         trigger.setOnClickListener(this);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
 
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mEditor = mSharedPreferences.edit();
+
+
+
+//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        mEditor = mSharedPreferences.edit();
         trigger.setOnClickListener(this);
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -119,17 +123,28 @@ public class HomeActivity extends AppCompatActivity
         if( v == trigger){
 
             String platformz = platforms.getText().toString();
-            if(!(platformz).equals("")) {
-                addToSharedPreferences(platformz);
-            }
+
+            savePlatformToFirebase(platformz);
+
+//            if(!(platformz).equals("")) {
+//                addToSharedPreferences(platformz);
+//            }
             Intent intent = new Intent(HomeActivity.this, GamesListActivity.class);
             intent.putExtra("platforms",platformz);
             startActivity(intent);
         }
     }
-    private void addToSharedPreferences(String platformz) {
-        mEditor.putString(Constants.PREFERENCES_PLATFORM_KEY, platformz).apply();
+
+    public void savePlatformToFirebase(String platformz) {
+        mSearchedPlatformReference.setValue(platformz);
     }
+
+
+
+
+//    private void addToSharedPreferences(String platformz) {
+//        mEditor.putString(Constants.PREFERENCES_PLATFORM_KEY, platformz).apply();
+//    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
