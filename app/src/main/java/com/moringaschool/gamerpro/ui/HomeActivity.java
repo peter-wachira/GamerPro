@@ -136,7 +136,7 @@ public class HomeActivity extends AppCompatActivity
     }
 
     public void savePlatformToFirebase(String platformz) {
-        mSearchedPlatformReference.setValue(platformz);
+        mSearchedPlatformReference.push().setValue(platformz);
     }
 
 
