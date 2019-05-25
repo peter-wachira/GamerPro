@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.GameDetailActivity"></activity>
-        <activity android:name=".ui.GamesDisplay" />
+        <activity android:name=".ui.GamesListActivity" />
         <activity
             android:name=".ui.HomeActivity"
             android:label="@string/title_activity_home"

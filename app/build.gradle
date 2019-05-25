@@ -44,10 +44,13 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.android.support:recyclerview-v7:+'
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
-    implementation 'com.google.firebase:firebase-auth:16.0.5'
+    implementation 'com.google.firebase:firebase-auth:17.0.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'org.parceler:parceler-api:1.1.12'
+    implementation 'com.firebaseui:firebase-ui-database:5.0.0'
     annotationProcessor 'org.parceler:parceler:1.1.12'
+    //Add Fire base SDK
+    implementation 'com.google.firebase:firebase-core:16.0.9'
 
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
     testImplementation "org.robolectric:robolectric:4.2"

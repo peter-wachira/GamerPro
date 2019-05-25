@@ -1,17 +1,17 @@
 package com.moringaschool.gamerpro.ui;
 
-        import android.app.ProgressDialog;
         import android.content.Intent;
+        import android.content.SharedPreferences;
         import android.os.Bundle;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.EditText;
+        import android.preference.PreferenceManager;
+        import android.util.Log;
         import android.widget.Toast;
 
         import androidx.appcompat.app.AppCompatActivity;
         import androidx.recyclerview.widget.LinearLayoutManager;
         import androidx.recyclerview.widget.RecyclerView;
 
+        import com.moringaschool.gamerpro.Constants.Constants;
         import com.moringaschool.gamerpro.models.GameModel;
         import com.moringaschool.gamerpro.services.GiantBombService;
         import com.moringaschool.gamerpro.R;
@@ -26,26 +26,33 @@ package com.moringaschool.gamerpro.ui;
         import okhttp3.Callback;
         import okhttp3.Response;
 
-public class GamesDisplay extends AppCompatActivity {
-    public static final String TAG = GamesDisplay.class.getSimpleName();
+public class GamesListActivity extends AppCompatActivity {
+    public static final String TAG = GamesListActivity.class.getSimpleName();
 
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
 ;
 
     private GameListAdapter mAdapter;
     public ArrayList<GameModel> mGames =new ArrayList<>();
+    private SharedPreferences mSharedPreferences;
+    private String mRecentPlatform;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_games_display);
         ButterKnife.bind(this);
-        Toast.makeText(GamesDisplay.this,"Finding Game...",Toast.LENGTH_LONG).show();
+        Toast.makeText(GamesListActivity.this,"Finding Game...",Toast.LENGTH_LONG).show();
         Intent intent = getIntent();
         String platforms = intent.getStringExtra("platforms");
         getGames(platforms);
 
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
+        mRecentPlatform = mSharedPreferences.getString(Constants.PREFERENCES_PLATFORM_KEY, null);
+        if (mRecentPlatform != null) {
+            getGames(mRecentPlatform);
+        }
     }
 
 
@@ -68,7 +75,7 @@ public class GamesDisplay extends AppCompatActivity {
 
                     if (response.isSuccessful()) {
                         mGames = GiantBombService.processresults(response);
-                        GamesDisplay.this.runOnUiThread(new Runnable() {
+                        GamesListActivity.this.runOnUiThread(new Runnable() {
 
                             @Override
                             public void run() {
@@ -76,7 +83,7 @@ public class GamesDisplay extends AppCompatActivity {
                                 mAdapter = new GameListAdapter(getApplicationContext(), mGames);
                                 mRecyclerView.setAdapter(mAdapter);
                                 RecyclerView.LayoutManager layoutManager =
-                                        new LinearLayoutManager(GamesDisplay.this);
+                                        new LinearLayoutManager(GamesListActivity.this);
                                 mRecyclerView.setLayoutManager(layoutManager);
                                 mRecyclerView.setHasFixedSize(true);
                             }

@@ -16,6 +16,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
+import com.moringaschool.gamerpro.Constants.Constants;
 import com.moringaschool.gamerpro.R;
 
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -118,12 +119,18 @@ public class HomeActivity extends AppCompatActivity
         if( v == trigger){
 
             String platformz = platforms.getText().toString();
-
-            Intent intent = new Intent(HomeActivity.this,GamesDisplay.class);
+            if(!(platformz).equals("")) {
+                addToSharedPreferences(platformz);
+            }
+            Intent intent = new Intent(HomeActivity.this, GamesListActivity.class);
             intent.putExtra("platforms",platformz);
             startActivity(intent);
         }
     }
+    private void addToSharedPreferences(String platformz) {
+        mEditor.putString(Constants.PREFERENCES_PLATFORM_KEY, platformz).apply();
+    }
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -133,7 +140,7 @@ public class HomeActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
             // Handle the camera action
         } else if (id == R.id.nav_mygames) {
-            Intent intent = new Intent(HomeActivity.this, GamesDisplay.class);
+            Intent intent = new Intent(HomeActivity.this, GamesListActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_platforms) {
 
