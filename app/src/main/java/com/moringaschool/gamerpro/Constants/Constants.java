@@ -17,7 +17,7 @@ public final class Constants {
 
     public static final String FIREBASE_CHILD_SEARCHED_PLATFORM = "searchedPlatform";
 
-
+    public static final String FIREBASE_CHILD_GAMES = "games";
 
 
 

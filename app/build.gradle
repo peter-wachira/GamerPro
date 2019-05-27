@@ -61,6 +61,8 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'org.parceler:parceler-api:1.1.12'
     implementation 'com.firebaseui:firebase-ui-database:5.0.0'
+    implementation 'com.firebaseui:firebase-ui-database:5.0.0'
+
     annotationProcessor 'org.parceler:parceler:1.1.12'
     //Add Fire base SDK
     implementation 'com.google.firebase:firebase-core:16.0.9'

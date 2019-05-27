@@ -1,83 +1,92 @@
 package com.moringaschool.gamerpro.models;
 import org.parceler.Parcel;
 
+
 import java.util.ArrayList;
+import java.util.List;
+
 @Parcel
 public class GameModel {
 
-    private  String mDeck;
-    private ArrayList<String> Platforms = new ArrayList<>();
+    String deck;
+    List<String> platforms = new ArrayList<>();
+    String dateAdded;
+    String originalRelease;
+    String aliases;
+    String name;
+    String images;
 
-    private  String mDateadded;
-    private  String mOriginalrelease;
-    private  String mAliases;
-    private  String mName;
-    private String mImages;
 
-    public String getmName() {
-        return mName;
-    }
-
-    public String getmDeck() {
-        return mDeck;
-    }
-
-    public String getmDateadded() {
-        return mDateadded;
-    }
-
-    public String getmAliases() {
-        return mAliases;
-    }
-
-    public String getmImages() {
-        return mImages;
-    }
 
     public  GameModel(){}
-    public GameModel(String mDeck, ArrayList<String> platforms, String mDateadded, String mOriginalrelease, String mAliases, String mName, String mImages) {
-        this.mDeck = mDeck;
-        Platforms = platforms;
-        this.mDateadded = mDateadded;
-        this.mOriginalrelease = mOriginalrelease;
-        this.mAliases = mAliases;
-        this.mName = mName;
-        this.mImages = mImages;
+
+    public GameModel(String deck, List<String> platforms, String dateAdded, String originalRelease, String aliases, String name, String images) {
+        this.deck = deck;
+        this.platforms = platforms;
+        this.dateAdded = dateAdded;
+        this.originalRelease = originalRelease;
+        this.aliases = aliases;
+        this.name = name;
+        this.images = images;
     }
 
-    public void setmDeck(String mDeck) {
-        this.mDeck = mDeck;
+    public String getDeck() {
+        return deck;
     }
 
-    public ArrayList<String> getPlatforms() {
-        return Platforms;
+    public void setDeck(String deck) {
+        this.deck = deck;
     }
 
-    public void setPlatforms(ArrayList<String> platforms) {
-        Platforms = platforms;
+    public List<String> getPlatforms() {
+        return platforms;
     }
 
-    public void setmDateadded(String mDateadded) {
-        this.mDateadded = mDateadded;
+    public void setPlatforms(List<String> platforms) {
+        this.platforms = platforms;
     }
 
-    public String getmOriginalrelease() {
-        return mOriginalrelease;
+    public String getDateAdded() {
+        return dateAdded;
     }
 
-    public void setmOriginalrelease(String mOriginalrelease) {
-        this.mOriginalrelease = mOriginalrelease;
+    public void setDateAdded(String dateAdded) {
+        this.dateAdded = dateAdded;
     }
 
-    public void setmAliases(String mAliases) {
-        this.mAliases = mAliases;
+    public String getOriginalRelease() {
+        return originalRelease;
     }
 
-    public void setmName(String mName) {
-        this.mName = mName;
+    public void setOriginalRelease(String originalRelease) {
+        this.originalRelease = originalRelease;
     }
 
-    public void setmImages(String mImages) {
-        this.mImages = mImages;
+    public String getAliases() {
+        return aliases;
     }
+
+    public void setAliases(String aliases) {
+        this.aliases = aliases;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getImages() {
+        return images;
+    }
+
+    public void setImages(String images) {
+        this.images = images;
+    }
+    //    public String getLargeImageUrl(String imageUrl) {
+//        String largeImageUrl = imageUrl.substring(0, imageUrl.length() - 6).concat("o.jpg");
+//        return largeImageUrl;
+//    }
 }

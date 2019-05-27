@@ -7,9 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.moringaschool.gamerpro.Constants.Constants;
 import com.moringaschool.gamerpro.R;
 import com.moringaschool.gamerpro.models.GameModel;
 import com.squareup.picasso.Picasso;
@@ -20,7 +24,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class GameDetailFragment extends Fragment {
+public class GameDetailFragment extends Fragment implements View.OnClickListener{
 
     @BindView(R.id.gameImageView)
     ImageView mGameImageView;
@@ -36,7 +40,7 @@ public class GameDetailFragment extends Fragment {
     TextView maliasesNameTextView;
     @BindView(R.id.saveGameButton)
     TextView mSaveGameButton;
-    private GameModel game;
+    private GameModel Game;
 
     public static GameDetailFragment newInstance(GameModel game) {
 
@@ -50,7 +54,7 @@ public class GameDetailFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        game = Parcels.unwrap(getArguments().getParcelable("game"));
+        Game = Parcels.unwrap(getArguments().getParcelable("game"));
     }
 
 
@@ -62,14 +66,27 @@ public class GameDetailFragment extends Fragment {
 
 
 //        mPlatformNameTextView.setText(game.getmName());
-        mPlatformNameTextView.setText(game.getPlatforms().get(0));
-        maliasesNameTextView.setText(game.getmAliases());
-        mOriginalReleaseTextView.setText(game.getmDateadded());
-        mGameDeckTextView.setText(game.getmDeck());
-        Picasso.get().load(game.getmImages()).into(mGameImageView);
+        mPlatformNameTextView.setText(Game.getPlatforms().get(0));
+        maliasesNameTextView.setText(Game.getAliases());
+        mOriginalReleaseTextView.setText(Game.getDateAdded());
+        mGameDeckTextView.setText(Game.getDeck());
+        Picasso.get().load(Game.getImages()).into(mGameImageView);
+
+        mSaveGameButton.setOnClickListener(this);
 
         return view;
     }
+    public void onClick(View v) {
+
+        if (v == mSaveGameButton) {
+            DatabaseReference gameRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_GAMES);
+            gameRef.push().setValue(Game);
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+
+        }
+
+    }
 
 }
-

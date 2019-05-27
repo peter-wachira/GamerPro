@@ -79,11 +79,11 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.GameVi
         }
 
         public void bindGame(GameModel game) {
-            mGameNameTextView.setText(game.getmName());
+            mGameNameTextView.setText(game.getName());
             mPlatformNameTextView.setText(game.getPlatforms().get(0));
-            mAliasesNameTextView.setText(game.getmAliases());
-            mDateAddedTextView.setText(game.getmDateadded());
-            Picasso.get().load( game.getmImages()).into(mGameImageView);
+            mAliasesNameTextView.setText(game.getAliases());
+            mDateAddedTextView.setText(game.getDateAdded());
+            Picasso.get().load( game.getImages()).into(mGameImageView);
         }
         @Override
         public void onClick(View v) {

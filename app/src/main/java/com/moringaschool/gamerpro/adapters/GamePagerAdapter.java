@@ -28,7 +28,7 @@ public class GamePagerAdapter extends FragmentPagerAdapter {
     }
     @Override
     public CharSequence getPageTitle(int position) {
-        return mGames.get(position).getmName();
+        return mGames.get(position).getName();
     }
 
 

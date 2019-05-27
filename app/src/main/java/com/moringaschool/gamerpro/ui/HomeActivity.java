@@ -8,6 +8,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 
 import androidx.core.view.GravityCompat;
@@ -16,8 +17,11 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.moringaschool.gamerpro.Constants.Constants;
 import com.moringaschool.gamerpro.R;
 
@@ -46,13 +50,34 @@ public class HomeActivity extends AppCompatActivity
     private SharedPreferences.Editor mEditor;
     private DatabaseReference mSearchedPlatformReference;
 
+    private ValueEventListener mSearchedPlatformReferenceListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         mSearchedPlatformReference = FirebaseDatabase
                 .getInstance()
                 .getReference()
-                .child(Constants.FIREBASE_CHILD_SEARCHED_PLATFORM);
+                .child(Constants.FIREBASE_CHILD_SEARCHED_PLATFORM);//pinpoint platform node
+
+       mSearchedPlatformReferenceListener = mSearchedPlatformReference.addValueEventListener(new ValueEventListener() { //attach listener
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) { //something changed!
+                for (DataSnapshot platformSnapshot : dataSnapshot.getChildren()) {
+                    String platformz = platformSnapshot.getValue().toString();
+                    Log.d("Locations updated", "location: " + platformz); //log
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) { //update UI here if error occurred.
+
+            }
+
+        });
+
+
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_activity);
@@ -66,6 +91,7 @@ public class HomeActivity extends AppCompatActivity
 
 //        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 //        mEditor = mSharedPreferences.edit();
+
         trigger.setOnClickListener(this);
 
 
@@ -139,6 +165,11 @@ public class HomeActivity extends AppCompatActivity
         mSearchedPlatformReference.push().setValue(platformz);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mSearchedPlatformReference.removeEventListener(mSearchedPlatformReferenceListener);
+    }
 
 
 
