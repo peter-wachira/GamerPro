@@ -8,28 +8,6 @@
     tools:context=".ui.GamesListActivity">
 
 
-    <!--<com.google.android.material.textfield.TextInputEditText-->
-        <!--android:id="@+id/platforms"-->
-        <!--android:layout_width="211dp"-->
-        <!--android:layout_height="56dp"-->
-        <!--android:layout_alignParentEnd="true"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_marginEnd="117dp"-->
-        <!--android:layout_marginBottom="583dp"-->
-        <!--android:hint="platforms"-->
-        <!--tools:layout_editor_absoluteX="225dp"-->
-        <!--tools:layout_edor_absoluteY="13"></com.google.android.material.textfield.TextInputEditText>-->
-
-
-    <!--<Button-->
-        <!--android:id="@+id/trigger"-->
-        <!--android:layout_width="104dp"-->
-        <!--android:layout_height="33dp"-->
-        <!--android:layout_alignParentEnd="true"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_marginEnd="4dp"-->
-        <!--android:layout_marginBottom="591dp"-->
-        <!--android:text="Button" />-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

@@ -22,13 +22,13 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-public class FIrebaseGameViewHolder  extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class FirebaseGameViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
 
     View mView;
     Context mContext;
 
-    public FIrebaseGameViewHolder(View itemView) {
+    public FirebaseGameViewHolder(View itemView) {
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
@@ -48,8 +48,7 @@ public class FIrebaseGameViewHolder  extends RecyclerView.ViewHolder implements 
         Picasso.get().load(game.getImages()).into(GameImageView);
         platformTextView.setText(game.getPlatforms().get(0));
         aliasesNameTextView.setText(game.getAliases());
-        originalReleaseTextView.setText(game.getDateAdded());
-        gameDeckTextView.setText(game.getDeck());
+
         nameTextView.setText(game.getName());
     }
     @Override

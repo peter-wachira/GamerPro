@@ -11,20 +11,15 @@
         android:roundIcon="@drawable/gamerhead"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.GameDetailActivity"></activity>
+        <activity android:name=".ui.SavedGameListActivity"></activity>
+        <activity android:name=".ui.GameDetailActivity" />
         <activity android:name=".ui.GamesListActivity" />
         <activity
             android:name=".ui.HomeActivity"
-            android:label="@string/title_activity_home"
-            />
-        <activity
-            android:name=".ui.SignupActivity"
-       />
-        <activity
-            android:name=".ui.Login"
-          />
-        <activity
-            android:name=".ui.SplashScreenActivity">
+            android:label="@string/title_activity_home" />
+        <activity android:name=".ui.SignupActivity" />
+        <activity android:name=".ui.Login" />
+        <activity android:name=".ui.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

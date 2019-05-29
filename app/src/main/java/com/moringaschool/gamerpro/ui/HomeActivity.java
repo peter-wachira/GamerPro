@@ -45,6 +45,7 @@ public class HomeActivity extends AppCompatActivity
     Button trigger;
     @BindView(R.id.platforms)
     EditText platforms;
+    @BindView(R.id.savedGamesButton) Button mSavedGamesButton;
 
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
@@ -61,7 +62,6 @@ public class HomeActivity extends AppCompatActivity
                 .child(Constants.FIREBASE_CHILD_SEARCHED_PLATFORM);//pinpoint platform node
 
        mSearchedPlatformReferenceListener = mSearchedPlatformReference.addValueEventListener(new ValueEventListener() { //attach listener
-
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) { //something changed!
                 for (DataSnapshot platformSnapshot : dataSnapshot.getChildren()) {
@@ -82,17 +82,12 @@ public class HomeActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_activity);
         ButterKnife.bind(this);
-        trigger.setOnClickListener(this);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
-
-
 //        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 //        mEditor = mSharedPreferences.edit();
-
         trigger.setOnClickListener(this);
+        mSavedGamesButton.setOnClickListener(this);
 
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -159,6 +154,10 @@ public class HomeActivity extends AppCompatActivity
             intent.putExtra("platforms",platformz);
             startActivity(intent);
         }
+        if (v == mSavedGamesButton) {
+            Intent intent = new Intent(HomeActivity.this, SavedGameListActivity.class);
+            startActivity(intent);
+        }
     }
 
     public void savePlatformToFirebase(String platformz) {
@@ -186,10 +185,11 @@ public class HomeActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
             // Handle the camera action
         } else if (id == R.id.nav_mygames) {
-            Intent intent = new Intent(HomeActivity.this, GamesListActivity.class);
+            Intent intent = new Intent(HomeActivity.this, SavedGameListActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_platforms) {
-
+            Intent intent = new Intent(HomeActivity.this, GamesListActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_backup) {
 
         } else if (id == R.id.nav_share) {
