@@ -1,4 +1,7 @@
 package com.moringaschool.gamerpro.util;
 
-public class OnStartDragListener {
+import androidx.recyclerview.widget.RecyclerView;
+
+public interface OnStartDragListener {
+    void onStartDrag(RecyclerView.ViewHolder viewHolder);
 }
