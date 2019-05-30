@@ -27,7 +27,8 @@
 
         <!-- Email Label -->
         <EditText
-            android:id="@+id/input_email"
+            android:id="@+id/emailEditText"
+            android:nextFocusDown="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
@@ -44,7 +45,7 @@
 
         <!-- Password Label -->
         <EditText
-            android:id="@+id/input_password"
+            android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
@@ -60,7 +61,7 @@
 
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_login"
+            android:id="@+id/passwordLoginButton"
             style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
             android:layout_width="350dp"
             android:layout_height="wrap_content"

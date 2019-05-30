@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.moringaschool.gamerpro.Constants.Constants;
@@ -79,10 +81,18 @@ public class GameDetailFragment extends Fragment implements View.OnClickListener
     public void onClick(View v) {
 
         if (v == mSaveGameButton) {
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
+
             DatabaseReference gameRef = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_GAMES);
-            gameRef.push().setValue(Game);
+                    .getReference(Constants.FIREBASE_CHILD_GAMES).child(uid);
+
+            DatabaseReference pushRef = gameRef.push();
+            String pushId = pushRef.getKey();
+            Game.setPushId(pushId);
+            pushRef.setValue(Game);
+
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
 
         }

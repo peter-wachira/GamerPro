@@ -9,14 +9,17 @@ import com.google.android.material.snackbar.Snackbar;
 
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.MenuInflater;
 import android.view.View;
 
+import androidx.appcompat.widget.SearchView;
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,6 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.moringaschool.gamerpro.Constants.Constants;
 import com.moringaschool.gamerpro.R;
 
+import androidx.core.view.MenuItemCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,6 +38,7 @@ import android.view.Menu;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,14 +46,14 @@ import butterknife.ButterKnife;
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener ,View.OnClickListener{
 
-    @BindView(R.id.trigger)
-    Button trigger;
-    @BindView(R.id.platforms)
-    EditText platforms;
+
+//    @BindView(R.id.platforms)
+//    EditText platforms;
     @BindView(R.id.savedGamesButton) Button mSavedGamesButton;
 
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
+    private String mRecentPlatform;
     private DatabaseReference mSearchedPlatformReference;
 
     private ValueEventListener mSearchedPlatformReferenceListener;
@@ -66,7 +71,6 @@ public class HomeActivity extends AppCompatActivity
             public void onDataChange(DataSnapshot dataSnapshot) { //something changed!
                 for (DataSnapshot platformSnapshot : dataSnapshot.getChildren()) {
                     String platformz = platformSnapshot.getValue().toString();
-                    Log.d("Locations updated", "location: " + platformz); //log
                 }
             }
             @Override
@@ -84,9 +88,9 @@ public class HomeActivity extends AppCompatActivity
         ButterKnife.bind(this);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        mEditor = mSharedPreferences.edit();
-        trigger.setOnClickListener(this);
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+
         mSavedGamesButton.setOnClickListener(this);
 
 
@@ -99,7 +103,7 @@ public class HomeActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         Intent intent = getIntent();
-        String email = intent.getStringExtra("useremail");
+        String email = intent.getStringExtra("email");
 
         //Update header email address with the email from previous activity
         View headerView =navigationView.getHeaderView(0);
@@ -120,42 +124,73 @@ public class HomeActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_search, menu);
         getMenuInflater().inflate(R.menu.home, menu);
+        ButterKnife.bind(this);
+
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        mEditor = mSharedPreferences.edit();
+
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                addToSharedPreferences(query);
+                Intent intent = new Intent(HomeActivity.this, GamesListActivity.class);
+                intent.putExtra("query",query);
+                startActivity(intent);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+
+        });
         return true;
     }
 
+
+
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
-
+        if (id == R.id.action_logout) {
+            logout();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void logout(){
+
+        FirebaseAuth.getInstance().signOut();
+        Intent intent=new Intent(this,Login.class);
+        startActivity(intent);
+        finish();
     }
     @Override
     public void onClick(View v) {
-        if( v == trigger){
 
-            String platformz = platforms.getText().toString();
-
-            savePlatformToFirebase(platformz);
-
-//            if(!(platformz).equals("")) {
-//                addToSharedPreferences(platformz);
-//            }
-            Intent intent = new Intent(HomeActivity.this, GamesListActivity.class);
-            intent.putExtra("platforms",platformz);
-            startActivity(intent);
-        }
         if (v == mSavedGamesButton) {
             Intent intent = new Intent(HomeActivity.this, SavedGameListActivity.class);
+            Toast.makeText(this,"Opening Saved Games...",Toast.LENGTH_LONG).show();
             startActivity(intent);
         }
     }
@@ -172,9 +207,9 @@ public class HomeActivity extends AppCompatActivity
 
 
 
-//    private void addToSharedPreferences(String platformz) {
-//        mEditor.putString(Constants.PREFERENCES_PLATFORM_KEY, platformz).apply();
-//    }
+    private void addToSharedPreferences(String platformz) {
+        mEditor.putString(Constants.PREFERENCES_PLATFORM_KEY, platformz).apply();
+    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

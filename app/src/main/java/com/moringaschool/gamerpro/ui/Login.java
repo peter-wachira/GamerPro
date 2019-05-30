@@ -1,6 +1,4 @@
-package com.moringaschool.gamerpro.ui;
-
-
+                                                                                                                                                                                              package com.moringaschool.gamerpro.ui;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,31 +9,40 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.moringaschool.gamerpro.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class Login extends AppCompatActivity {
+public class Login extends AppCompatActivity  {
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
 
-    @BindView(R.id.input_email)
+    @BindView(R.id.emailEditText)
     EditText _emailText;
-    @BindView(R.id.input_password)
+    @BindView(R.id.passwordEditText)
     EditText _passwordText;
-    @BindView(R.id.btn_login)
+    @BindView(R.id.passwordLoginButton)
     Button _loginButton;
     @BindView(R.id.link_signup)
     TextView _signupLink;
+    private FirebaseAuth mAuth;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        mAuth = FirebaseAuth.getInstance();
         ButterKnife.bind(this);
+
 
         _loginButton.setOnClickListener(new View.OnClickListener() {
 
@@ -52,9 +59,11 @@ public class Login extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // Start the Signup activity
+
                 Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
-                startActivityForResult(intent, REQUEST_SIGNUP);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
             }
         });
     }
@@ -78,37 +87,48 @@ public class Login extends AppCompatActivity {
 
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            String em= email;
+                            onLoginSuccess();
+                            Intent intent = new Intent(Login.this,HomeActivity.class);
+                            intent.putExtra("email",em);
+                            startActivity(intent);
+                        } else {
+                            progressDialog.dismiss();
+                            Log.w(TAG, "signInWithEmail:failure", task.getException());
+                            onLoginFailed();
 
-        Intent intent = new Intent(Login.this, HomeActivity.class);
-        intent.putExtra("useremail", email);
-        startActivity(intent);
+                        }
 
-        // authentication logic here.
-
-        new android.os.Handler().postDelayed(
-                new Runnable() {
-                    public void run() {
-                        // On complete call either onLoginSuccess or onLoginFailed
-
-                        onLoginSuccess();
-                        // onLoginFailed();
-                        progressDialog.dismiss();
                     }
-                }, 3000);
+                });
+
+//
+//        new android.os.Handler().postDelayed(
+//                new Runnable() {
+//                    public void run() {
+//                        onLoginSuccess();
+////                         onLoginFailed();
+//                        progressDialog.dismiss();
+//                    }
+//                }, 3000);
     }
 
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_SIGNUP) {
-            if (resultCode == RESULT_OK) {
-
-                // signup logic here
-                // By default we just finish the Activity and log them in automatically
-                this.finish();
-            }
-        }
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        if (requestCode == REQUEST_SIGNUP) {
+//            if (resultCode == RESULT_OK) {
+//                Intent intent =new Intent(getApplicationContext(), SignupActivity.class);
+//               startActivity(intent);
+//                this.finish();
+//            }
+//        }
+//    }
 
     @Override
     public void onBackPressed() {
@@ -117,13 +137,13 @@ public class Login extends AppCompatActivity {
     }
 
     public void onLoginSuccess() {
+        Toast.makeText(getBaseContext(),"Success",Toast.LENGTH_LONG).show();
         _loginButton.setEnabled(true);
         finish();
     }
 
     public void onLoginFailed() {
-        Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
-
+        Toast.makeText(getBaseContext(), "Authentication failed", Toast.LENGTH_LONG).show();
         _loginButton.setEnabled(true);
     }
 

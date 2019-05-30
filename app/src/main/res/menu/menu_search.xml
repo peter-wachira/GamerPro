@@ -3,7 +3,8 @@
     <item
         android:id="@+id/action_search"
         android:icon="@drawable/baseline_search_black_18dp"
-        android:title="@string/search_title"
-        app:actionLayout="@layout/search_view_layout"
-        app:showAsAction="ifRoom|collapseActionView" />
+        app:showAsAction="always"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        android:title="Search">
+    </item>
 </menu>

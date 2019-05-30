@@ -42,10 +42,12 @@ public class GamesListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_games_display);
         ButterKnife.bind(this);
-        Toast.makeText(GamesListActivity.this,"Finding Game...",Toast.LENGTH_LONG).show();
+        Toast.makeText(GamesListActivity.this,"Finding Platform...",Toast.LENGTH_LONG).show();
         Intent intent = getIntent();
-        String platforms = intent.getStringExtra("platforms");
+        String platforms = intent.getStringExtra("query");
         getGames(platforms);
+
+
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 

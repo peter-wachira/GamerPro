@@ -24,13 +24,15 @@
 
         <!--  Name Label -->
 
-        <com.google.android.material.textfield.TextInputEditText android:id="@+id/input_name"
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-
+            android:id="@+id/nameEditText"
+            android:nextFocusDown="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapWords"
+
             android:hint="Name"
             android:textColor="#fff"
             android:textColorHint="#fff"/>
@@ -38,8 +40,9 @@
 
         <!-- Email Label -->
 
-        <com.google.android.material.textfield.TextInputEditText android:id="@+id/input_email"
+        <com.google.android.material.textfield.TextInputEditText android:id="@+id/emailEditText"
             android:layout_marginBottom="8dp"
+            android:nextFocusDown="@+id/numberEditText"
             android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -55,6 +58,7 @@
             android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:nextFocusDown="@+id/passwordEditText"
             android:inputType="number"
             android:hint="Phone number"
             android:textColor="#fff"
@@ -62,20 +66,32 @@
 
         <!-- Password Label -->
 
-        <EditText android:id="@+id/input_password"
+        <EditText android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
+            android:nextFocusDown="@+id/confirmPasswordEditText"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:textColorHint="#fff"
             android:textColor="#fff"
-
             android:inputType="textPassword"
             android:hint="Password"/>
 
+        <EditText android:id="@+id/confirmPasswordEditText"
+            android:layout_width="match_parent"
+            android:nextFocusDown="@+id/createUserButton"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColorHint="#fff"
+            android:textColor="#fff"
+            android:inputType="textPassword"
+            android:hint="Confirm Password"/>
+
+
         <!-- Signup Button -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_signup"
+            android:id="@+id/createUserButton"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -89,7 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:gravity="center"
-            android:text="Already a member? Login"
+            android:text="Already a member? Login here"
             android:textColor="#fff"
             android:textSize="16dip" />
     </LinearLayout>

@@ -15,6 +15,7 @@ public class GameModel {
     String aliases;
     String name;
     String images;
+    private String pushId;
 
 
 
@@ -28,6 +29,14 @@ public class GameModel {
         this.aliases = aliases;
         this.name = name;
         this.images = images;
+        this.pushId ="";
+    }
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 
     public String getDeck() {
