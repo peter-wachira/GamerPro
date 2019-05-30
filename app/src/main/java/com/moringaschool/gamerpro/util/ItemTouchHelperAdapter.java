@@ -1,4 +1,6 @@
 package com.moringaschool.gamerpro.util;
 
-public class ItemTouchHelperAdapter {
+public interface ItemTouchHelperAdapter {
+    boolean onItemMove(int fromPosition, int toPosition);
+    void onItemDismiss(int position);
 }
