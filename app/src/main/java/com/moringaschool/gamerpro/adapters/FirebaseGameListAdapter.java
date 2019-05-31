@@ -125,6 +125,9 @@ public class FirebaseGameListAdapter extends FirebaseRecyclerAdapter<GameModel, 
 
         });
 
+
+
+
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
 
             @Override
