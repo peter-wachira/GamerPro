@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.moringaschool.gamerpro.Constants.Constants;
 import com.moringaschool.gamerpro.R;
 import com.moringaschool.gamerpro.adapters.FirebaseGameListAdapter;
@@ -53,15 +54,16 @@ public class SavedGameListActivity extends AppCompatActivity implements OnStartD
         String uid = user.getUid();
 
 
-        mGameReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_GAMES).child(uid);
+        Query query = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_GAMES).child(uid).orderByChild(Constants.FIREBASE_QUERY_INDEX);
+
 
         FirebaseRecyclerOptions<GameModel> options =
                 new FirebaseRecyclerOptions.Builder<GameModel>()
-                        .setQuery(mGameReference, GameModel.class)
+                        .setQuery(query, GameModel.class)
                         .build();
 
 
-        mFirebaseAdapter = new FirebaseGameListAdapter(options, mGameReference, this, this);
+        mFirebaseAdapter = new FirebaseGameListAdapter(options, query, this, this);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mFirebaseAdapter);
         mRecyclerView.setHasFixedSize(true);
@@ -88,6 +90,11 @@ public class SavedGameListActivity extends AppCompatActivity implements OnStartD
         mItemTouchHelper.startDrag(viewHolder);
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mFirebaseAdapter.stopListening(); }
 }
+
+
 

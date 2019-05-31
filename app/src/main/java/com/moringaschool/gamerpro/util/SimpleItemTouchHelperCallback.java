@@ -7,7 +7,7 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
     private final ItemTouchHelperAdapter mAdapter;
 
     //  This constructor takes an ItemTouchHelperAdapter parameter. When implemented in
-    //  FirebaseRestaurantListAdapter, the ItemTouchHelperAdapter instance will pass the gesture event back to the
+    //  FirebaseGameModelListAdapter, the ItemTouchHelperAdapter instance will pass the gesture event back to the
     //  Firebase adapter where we will define what occurs when an item is moved or dismissed.
 
     public SimpleItemTouchHelperCallback(ItemTouchHelperAdapter adapter) {
@@ -42,7 +42,7 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
 
     //  The method below notifies the adapter that an item has moved.
     //  This triggers the onItemMove override in our Firebase adapter,
-    //  which will eventually handle updating the restaurants ArrayList to reflect the item's new position.
+    //  which will eventually handle updating the GameModels ArrayList to reflect the item's new position.
 
     @Override
     public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder source,
@@ -56,7 +56,7 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
 
     //  The method below notifies the adapter that an item was dismissed.
     //  This triggers the onItemDismiss override in our Firebase adapter
-    //  which will eventually handle deleting this item from the user's "Saved Restaurants" in Firebase.
+    //  which will eventually handle deleting this item from the user's "Saved GameModels" in Firebase.
 
     @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int i) {

@@ -24,22 +24,24 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-public class FirebaseGameViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class FirebaseGameViewHolder extends RecyclerView.ViewHolder  {
 
 
+    private static final int MAX_WIDTH = 200;
+    private static final int MAX_HEIGHT = 200;
     View mView;
     Context mContext;
+    public ImageView mGameImageView;
 
     public FirebaseGameViewHolder(View itemView) {
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
-        itemView.setOnClickListener(this);
     }
 
     public void bindGame(GameModel game) {
 
-        ImageView GameImageView = (ImageView) mView.findViewById(R.id.gameImageView);
+        mGameImageView = (ImageView) mView.findViewById(R.id.gameImageView);
         TextView nameTextView = (TextView) mView.findViewById(R.id.gameName);
         TextView platformTextView = (TextView) mView.findViewById(R.id.platformName);
         TextView originalReleaseTextView = (TextView) mView.findViewById(R.id.original_release);
@@ -47,43 +49,11 @@ public class FirebaseGameViewHolder extends RecyclerView.ViewHolder implements V
         TextView gameDeckTextView = (TextView) mView.findViewById(R.id.gameDeck);
 
 
-        Picasso.get().load(game.getImages()).into(GameImageView);
+        Picasso.get().load(game.getImages()).into(mGameImageView);
         platformTextView.setText(game.getPlatforms().get(0));
         aliasesNameTextView.setText(game.getAliases());
 
         nameTextView.setText(game.getName());
-    }
-    @Override
-    public void onClick (View v){
-
-        final ArrayList<GameModel> games = new ArrayList<>();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
-
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_GAMES).child(uid);
-
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    games.add(snapshot.getValue(GameModel.class));
-                }
-
-                int itemPosition = getLayoutPosition();
-
-                Intent intent = new Intent(mContext, GameDetailActivity.class);
-                intent.putExtra("position", itemPosition + "");
-                intent.putExtra("games", Parcels.wrap(games));
-
-                mContext.startActivity(intent);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-
     }
 
 }

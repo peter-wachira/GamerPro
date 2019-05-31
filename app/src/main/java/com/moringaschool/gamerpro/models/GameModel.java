@@ -15,6 +15,8 @@ public class GameModel {
     String aliases;
     String name;
     String images;
+    String index;
+
     private String pushId;
 
 
@@ -30,7 +32,18 @@ public class GameModel {
         this.name = name;
         this.images = images;
         this.pushId ="";
+        this.index = "not_specified";
     }
+
+
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
+    }
+
     public String getPushId() {
         return pushId;
     }
