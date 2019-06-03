@@ -1,4 +1,6 @@
 package com.moringaschool.gamerpro.util;
 
-public class ItemTouchHelperViewHolder {
+public interface ItemTouchHelperViewHolder {
+    void onItemSelected();
+    void onItemClear();
 }

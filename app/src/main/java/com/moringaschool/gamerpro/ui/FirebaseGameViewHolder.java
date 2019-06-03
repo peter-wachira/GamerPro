@@ -2,6 +2,7 @@ package com.moringaschool.gamerpro.ui;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,13 +19,14 @@ import com.google.firebase.database.ValueEventListener;
 import com.moringaschool.gamerpro.Constants.Constants;
 import com.moringaschool.gamerpro.R;
 import com.moringaschool.gamerpro.models.GameModel;
+import com.moringaschool.gamerpro.util.ItemTouchHelperViewHolder;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-public class FirebaseGameViewHolder extends RecyclerView.ViewHolder  {
+public class FirebaseGameViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
 
 
     private static final int MAX_WIDTH = 200;
@@ -56,4 +58,24 @@ public class FirebaseGameViewHolder extends RecyclerView.ViewHolder  {
         nameTextView.setText(game.getName());
     }
 
+    @Override
+    public void onItemSelected() {
+        Log.d("Animation", "onItemSelected");
+        // we will add animations here
+        itemView.animate()
+                .alpha(0.7f)
+                .scaleX(0.9f)
+                .scaleY(0.9f)
+                .setDuration(500);
+    }
+
+    @Override
+    public void onItemClear() {
+        Log.d("Animation", "onItemClear");
+        // we will add animations here
+        itemView.animate()
+                .alpha(1f)
+                .scaleX(1f)
+                .scaleY(1f);
+    }
 }
