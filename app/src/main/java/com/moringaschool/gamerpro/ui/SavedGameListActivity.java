@@ -29,71 +29,72 @@ import com.moringaschool.gamerpro.util.SimpleItemTouchHelperCallback;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SavedGameListActivity extends AppCompatActivity implements OnStartDragListener {
+public class SavedGameListActivity extends AppCompatActivity  {
 
     private DatabaseReference mGameReference;
     private ItemTouchHelper mItemTouchHelper;
     private  FirebaseGameListAdapter mFirebaseAdapter;
-    @BindView(R.id.recyclerView)
-    RecyclerView mRecyclerView;
+//    @BindView(R.id.recyclerView)
+//    RecyclerView mRecyclerView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_games_display);
-        ButterKnife.bind(this);
+        setContentView(R.layout.activity_saved_game_list);
+//        ButterKnife.bind(this);
 
-        setUpFirebaseAdapter();
+//        setUpFirebaseAdapter();
     }
 
 
-    private void setUpFirebaseAdapter(){
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
+//    private void setUpFirebaseAdapter(){
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        String uid = user.getUid();
+//
+//
+//        Query query = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_GAMES).child(uid).orderByChild(Constants.FIREBASE_QUERY_INDEX);
+//
+//
+//        FirebaseRecyclerOptions<GameModel> options =
+//                new FirebaseRecyclerOptions.Builder<GameModel>()
+//                        .setQuery(query, GameModel.class)
+//                        .build();
+//
+//
+//        mFirebaseAdapter = new FirebaseGameListAdapter(options, query, this, this);
+//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        mRecyclerView.setAdapter(mFirebaseAdapter);
+//        mRecyclerView.setHasFixedSize(true);
+//        ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(mFirebaseAdapter);
+//
+//        mItemTouchHelper = new ItemTouchHelper(callback);
+//        mItemTouchHelper.attachToRecyclerView(mRecyclerView);
+//    }
 
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        mFirebaseAdapter.startListening();
+//    }
+//
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        if(mFirebaseAdapter!= null) {
+//            mFirebaseAdapter.stopListening();
+//        }
+//    }
+//    public void onStartDrag(RecyclerView.ViewHolder viewHolder){
+//        mItemTouchHelper.startDrag(viewHolder);
+//    }
+//
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        mFirebaseAdapter.stopListening(); }
 
-        Query query = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_GAMES).child(uid).orderByChild(Constants.FIREBASE_QUERY_INDEX);
-
-
-        FirebaseRecyclerOptions<GameModel> options =
-                new FirebaseRecyclerOptions.Builder<GameModel>()
-                        .setQuery(query, GameModel.class)
-                        .build();
-
-
-        mFirebaseAdapter = new FirebaseGameListAdapter(options, query, this, this);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setAdapter(mFirebaseAdapter);
-        mRecyclerView.setHasFixedSize(true);
-        ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(mFirebaseAdapter);
-
-        mItemTouchHelper = new ItemTouchHelper(callback);
-        mItemTouchHelper.attachToRecyclerView(mRecyclerView);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        mFirebaseAdapter.startListening();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if(mFirebaseAdapter!= null) {
-            mFirebaseAdapter.stopListening();
-        }
-    }
-    public void onStartDrag(RecyclerView.ViewHolder viewHolder){
-        mItemTouchHelper.startDrag(viewHolder);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mFirebaseAdapter.stopListening(); }
 }
 
 

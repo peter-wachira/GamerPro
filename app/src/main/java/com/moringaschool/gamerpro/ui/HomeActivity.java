@@ -145,8 +145,9 @@ public class HomeActivity extends AppCompatActivity
             @Override
             public boolean onQueryTextSubmit(String query) {
                 addToSharedPreferences(query);
-                Intent intent = new Intent(HomeActivity.this, GameListFragment.class);
+                Intent intent = new Intent(HomeActivity.this, GamesListActivity.class);
                 intent.putExtra("query",query);
+                Constants.QUERY= query;
                 startActivity(intent);
                 return false;
             }

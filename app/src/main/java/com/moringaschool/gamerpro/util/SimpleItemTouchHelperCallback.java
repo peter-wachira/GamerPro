@@ -64,7 +64,7 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
     }
 
         //   The method below triggers the callback in ItemTouchHelperViewHolder which is then sent to our
-        //  RestaurantListViewHolder where we will later add animations.
+        //  GameListViewHolder where we will later add animations.
 
         @Override
         public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState) {
@@ -83,8 +83,8 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
             super.onSelectedChanged(viewHolder, actionState);
         }
 
-        //  This triggers the callback in the ItemTouchHelperViewHolder which will be sent to our RestaurantListViewHolder.
-        //  Then, in the clearView override in RestaurantListViewHolder, we will remove the animations attached
+        //  This triggers the callback in the ItemTouchHelperViewHolder which will be sent to ourGameListViewHolder.
+        //  Then, in the clearView override in GameListViewHolder, we will remove the animations attached
         //   to 'selected' items, since this item will no longer be actively selected.
 
         @Override

@@ -43,66 +43,69 @@ public class GamesListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_games_display);
         ButterKnife.bind(this);
         Toast.makeText(GamesListActivity.this,"Finding Platform...",Toast.LENGTH_LONG).show();
-        Intent intent = getIntent();
-        String platforms = intent.getStringExtra("query");
-        getGames(platforms);
+//        Intent intent = getIntent();
 
 
 
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        String platforms = intent.getStringExtra("query");
+//        getGames(platforms);
 
-        mRecentPlatform = mSharedPreferences.getString(Constants.PREFERENCES_PLATFORM_KEY, null);
-        if (mRecentPlatform != null) {
-            getGames(mRecentPlatform);
-        }
+
+//
+//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//
+//        mRecentPlatform = mSharedPreferences.getString(Constants.PREFERENCES_PLATFORM_KEY, null);
+//        if (mRecentPlatform != null) {
+//            getGames(mRecentPlatform);
+//        }
     }
 
 
 
 
-    private void getGames(String platforms) {
-
-        final GiantBombService giantBombService = new GiantBombService();
-
-        giantBombService.findGames( platforms, new Callback() {
-
-
-            @Override
-            public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-
-                    if (response.isSuccessful()) {
-                        mGames = GiantBombService.processresults(response);
-                        GamesListActivity.this.runOnUiThread(new Runnable() {
-
-                            @Override
-                            public void run() {
-
-                                mAdapter = new GameListAdapter(getApplicationContext(), mGames);
-
-
-
-                                mRecyclerView.setAdapter(mAdapter);
-
-
-                                RecyclerView.LayoutManager layoutManager =
-                                        new LinearLayoutManager(GamesListActivity.this);
-                                mRecyclerView.setLayoutManager(layoutManager);
-                                mRecyclerView.setHasFixedSize(true);
-                            }
-
-                        });
-                    }
-                }
-
-        });
-
-
-    }
+//    private void getGames(String platforms) {
+//
+//        final GiantBombService giantBombService = new GiantBombService();
+//
+//        giantBombService.findGames( platforms, new Callback() {
+//
+//
+//            @Override
+//            public void onFailure(Call call, IOException e) {
+//                e.printStackTrace();
+//            }
+//
+//            @Override
+//            public void onResponse(Call call, Response response) throws IOException {
+//
+//                    if (response.isSuccessful()) {
+//                        mGames = GiantBombService.processresults(response);
+//                        GamesListActivity.this.runOnUiThread(new Runnable() {
+//
+//                            @Override
+//                            public void run() {
+//
+//                                mAdapter = new GameListAdapter(getApplicationContext(), mGames);
+//
+//
+//
+//                                mRecyclerView.setAdapter(mAdapter);
+//
+//
+//                                RecyclerView.LayoutManager layoutManager =
+//                                        new LinearLayoutManager(GamesListActivity.this);
+//                                mRecyclerView.setLayoutManager(layoutManager);
+//                                mRecyclerView.setHasFixedSize(true);
+//                            }
+//
+//                        });
+//                    }
+//                }
+//
+//        });
+//
+//
+//    }
 
 
 

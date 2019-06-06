@@ -107,28 +107,9 @@ public class Login extends AppCompatActivity  {
                     }
                 });
 
-//
-//        new android.os.Handler().postDelayed(
-//                new Runnable() {
-//                    public void run() {
-//                        onLoginSuccess();
-////                         onLoginFailed();
-//                        progressDialog.dismiss();
-//                    }
-//                }, 3000);
+
     }
 
-
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        if (requestCode == REQUEST_SIGNUP) {
-//            if (resultCode == RESULT_OK) {
-//                Intent intent =new Intent(getApplicationContext(), SignupActivity.class);
-//               startActivity(intent);
-//                this.finish();
-//            }
-//        }
-//    }
 
     @Override
     public void onBackPressed() {

@@ -44,11 +44,14 @@ public class GameListFragment extends Fragment  {
     private SharedPreferences mSharedPreferences;
     private String mRecentPlatform;
     private SharedPreferences.Editor mEditor;
+    String query="";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Toast.makeText(getActivity(),"Finding Platform...",Toast.LENGTH_LONG).show();
+        query = Constants.QUERY;
+        getGames(query);
 
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -57,8 +60,23 @@ public class GameListFragment extends Fragment  {
         // Instructs fragment to include menu options:
         setHasOptionsMenu(true);
     }
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_game_list, container, false);
+        ButterKnife.bind(this, view);
 
 
+        mRecentPlatform = mSharedPreferences.getString(Constants.PREFERENCES_PLATFORM_KEY, null);
+        if (mRecentPlatform != null) {
+            getGames(mRecentPlatform);
+        }
+
+        return view;
+
+
+
+    }
 
     private void getGames(String platforms) {
 
@@ -113,22 +131,6 @@ public class GameListFragment extends Fragment  {
     }
 
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_game_list, container, false);
-        ButterKnife.bind(this, view);
 
-
-        mRecentPlatform = mSharedPreferences.getString(Constants.PREFERENCES_PLATFORM_KEY, null);
-        if (mRecentPlatform != null) {
-            getGames(mRecentPlatform);
-        }
-
-        return view;
-
-
-
-    }
 
 }

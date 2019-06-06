@@ -21,6 +21,8 @@ public final class Constants {
 
     public static final String FIREBASE_QUERY_INDEX = "index";
 
+    public static String  QUERY ="";
+
 
 
 
